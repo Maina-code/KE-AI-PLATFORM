@@ -69,7 +69,7 @@ Encrypted PostgreSQL with strict access policies.
 Security Layer
 Encryption, access controls, logging, secure API gateway.
 
-🛠 Tech Stack
+Tech Stack
 
 Frontend: React + Tailwind/Material UI
 
@@ -80,3 +80,71 @@ Database: PostgreSQL
 AI: Python (Transformers, OCR, anomaly detection models)
 
 Deployment: Docker, Railway/Render, GitHub Actions
+
+Security Approach
+
+Security isn’t an afterthought — it is the foundation of Nuru AI.
+This system is built with confidentiality, integrity, and traceability as primary design principles.
+
+1. Data Security
+
+All data encrypted at rest using PostgreSQL encryption.
+
+All connections use HTTPS/TLS 1.3.
+
+No sensitive keys stored in code repositories.
+
+2. Access Control
+
+Role-Based Access Control (RBAC) for auditors, investigators, supervisors, and admins.
+
+All privileged actions require elevated authentication.
+
+Suspicious login attempts trigger alerts.
+
+3. API Security
+
+JWT + rotating refresh tokens.
+
+IP whitelisting capability for sensitive routes.
+
+Strict input validation to prevent injection attacks.
+
+4. Audit Logging
+
+Every user action is logged with timestamp, IP, and purpose.
+
+Immutable logs stored separately from application database.
+
+5. AI Model Integrity
+
+All model outputs include confidence scores.
+
+Models versioned and stored behind protected endpoints.
+
+6. DevSecOps
+
+CI pipeline scans dependencies for vulnerabilities.
+
+Automatic secret detection to prevent accidental leaks.
+
+Regular dependency patching policy.
+
+Nuru AI is built with the understanding that national investigative data must be handled with extreme caution, traceability, and integrity.
+
+Team
+
+Backend Lead – Briton
+
+AI & Systems Research – Brayo & Leslie
+
+Frontend Lead – Maxwell Kiptoo
+
+Project Coordination & Security Oversight – Team Nuru AI
+
+Vision
+
+Nuru AI aims to become Kenya’s trusted intelligence companion — a tool that empowers investigators, protects public funds, and strengthens national accountability structures.
+
+The project continues evolving, but the purpose remains constant:
+Illuminate the truth. Strengthen the nation.
