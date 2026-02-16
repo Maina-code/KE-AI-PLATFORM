@@ -129,3 +129,20 @@
             box-shadow: 0 4px 15px rgba(255, 179, 71, 0.3);
         }
     </style>
+        <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">NuruAI</a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#problem" class="nav-link">Simulation</a></li>
+                <li><a href="#oversight" class="nav-link">Oversight</a></li>
+                <li><a href="#impact" class="nav-link">Impact</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+            </ul>
+            <div style="display:flex; gap:15px; align-items:center;">
+                <a href="#" class="btn btn-text">Login</a>
+                <a href="#" class="btn btn-primary">Launch</a>
+            </div>
+        </div>
+    </nav>
