@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuruAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Ambient Abstract Background -->
+    <div class="ambient-bg">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">NuruAI</a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#problem" class="nav-link">Simulation</a></li>
+                <li><a href="#oversight" class="nav-link">Oversight</a></li>
+                <li><a href="#impact" class="nav-link">Impact</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+            </ul>
+            <div style="display:flex; gap:15px; align-items:center;">
+                <a href="#" class="btn btn-text">Login</a>
+                <a href="#" class="btn btn-primary">Launch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <span class="hero-label">Civic Integrity Platform</span>
+                <h1 class="hero-title">Revealing the Hidden Mechanics of Procurement Corruption</h1>
+                <p class="hero-subtitle">An interactive simulation that exposes systemic vulnerabilities, demonstrates
+                    audit escalation, and promotes accountability in public finance.</p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-secondary">Explore the Simulation</a>
+                    <a href="#" class="btn btn-primary">How It Works</a>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="mockup-container" id="heroMockup">
+                    <!-- Glass Card Mockup -->
+                    <div class="glass-card mockup-main">
+                        <div class="mockup-header">
+                            <div class="dummy-bar sm" style="background: rgba(255,255,255,0.2);"></div>
+                            <div
+                                style="width: 15px; height: 15px; border-radius: 50%; background: #ff5f56; margin-left: auto; margin-right: 8px;">
+                            </div>
+                            <div style="width: 15px; height: 15px; border-radius: 50%; background: #ffbd2e;"></div>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <div
+                                style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.8rem;color:#8892b0;">
+                                <span>Tender Allocation</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="dummy-bar accent" style="width: 85%;"></div>
+
+                            <div
+                                style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.8rem;color:#8892b0; margin-top:20px;">
+                                <span>Budget Utilization</span>
+                                <span>42%</span>
+                            </div>
+                            <div class="dummy-bar" style="width: 42%; background: #a8b2d1;"></div>
+
+                            <div class="dummy-bar lg" style="margin-top: 40px; opacity: 0.3;"></div>
+                            <div class="dummy-bar sm" style="opacity: 0.2;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stat Card -->
+                    <div class="mockup-float">
+                        <div class="stat-label">Irregularities Detected</div>
+                        <div class="stat-val">1,240</div>
+                        <div style="font-size: 0.7rem; color: #ff6b6b; margin-top: 5px;">▲ 12% vs last quarter</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Strip -->
+    <div class="credibility">
+        <div class="container">
+            <div class="cred-list">
+                <div class="cred-item">Procurement Integrity</div>
+                <div class="cred-item">Audit Transparency</div>
+                <div class="cred-item">Institutional Accountability</div>
+                <div class="cred-item">Civic Innovation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job/Problem Section -->
+    <section class="section" id="problem">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">The Systemic Challenge</h2>
+                <p class="section-desc">Public procurement is robust on paper but vulnerable in practice. Financial
+                    leakage, manipulated evaluations, and inflated tenders undermine national development.</p>
+            </div>
+
+            <div class="problem-cards">
+                <div class="card reveal">
+                    <div class="card-icon danger">⚠️</div>
+                    <h3>Tender Manipulation</h3>
+                    <p>Rigged specifications and short notice periods exclude competitive bidders and favor pre-selected
+                        cronies.</p>
+                </div>
+                <div class="card reveal" style="transition-delay: 100ms;">
+                    <div class="card-icon danger">📈</div>
+                    <h3>Inflated Contract Values</h3>
+                    <p>Goods and services priced significantly above market rates, draining public resources for private
+                        gain.</p>
+                </div>
+                <div class="card reveal" style="transition-delay: 200ms;">
+                    <div class="card-icon danger">🤝</div>
+                    <h3>Conflict of Interest</h3>
+                    <p>Officials awarding contracts to companies owned by relatives or associates without disclosure.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Flow -->
+    <section class="section" style="background: rgba(2, 12, 27, 0.3);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Where Corruption Occurs</h2>
+                <p class="section-desc">Vulnerabilities exist at every stage of the procurement lifecycle.</p>
+            </div>
+
+            <div class="process-steps reveal">
+                <div class="process-line"></div>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Announcement</h4>
+                    <p>Hidden advertisements or tailored specs.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Evaluation</h4>
+                    <p>Biased scoring and disqualification.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Award</h4>
+                    <p>Ignoring lower bids for "technical reasons".</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Payment</h4>
+                    <p>Paying for unfinished or ghost work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oversight Section -->
+    <section class="section" id="oversight">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Oversight & Escalation</h2>
+                <p class="section-desc">How institutions detect and act on irregularities.</p>
+            </div>
+
+            <div class="oversight-grid">
+                <div class="oversight-card reveal">
+                    <div class="oversight-content">
+                        <h3><span style="color:var(--accent-teal)">🔍</span> Audit Stage</h3>
+                        <p style="margin-bottom: 20px; color: var(--text-secondary);">Auditors review documentation
+                            against regulatory frameworks.</p>
+                        <ul class="oversight-list">
+                            <li>Flags procedural non-compliance</li>
+                            <li>Identifies math errors in bid comparison</li>
+                            <li>Verifies value-for-money metrics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="oversight-card reveal" style="transition-delay: 100ms;">
+                    <div class="oversight-content">
+                        <h3><span style="color:var(--accent-gold)">⚖️</span> Investigation Stage</h3>
+                        <p style="margin-bottom: 20px; color: var(--text-secondary);">Escalation to anti-corruption
+                            bureaus for prosecution.</p>
+                        <ul class="oversight-list">
+                            <li>Forensic analysis of bank flows</li>
+                            <li>Interviewing whistleblowers</li>
+                            <li>Prepares dockets for prosecution</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">How the Simulator Works</h2>
+            </div>
+            <div class="feature-grid reveal">
+                <div class="feature-item">
+                    <span class="feature-check">✔</span>
+                    <div>
+                        <h4>Interactive Journey</h4>
+                        <p class="text-secondary" style="font-size:0.9rem;">Play the role of an oversight officer.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-check">✔</span>
+                    <div>
+                        <h4>Red Flag Identification</h4>
+                        <p class="text-secondary" style="font-size:0.9rem;">Learn to spot common corruption markers.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-check">✔</span>
+                    <div>
+                        <h4>Audit Trail Simulation</h4>
+                        <p class="text-secondary" style="font-size:0.9rem;">Trace documents from tender to payment.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-check">✔</span>
+                    <div>
+                        <h4>Real-world Case Studies</h4>
+                        <p class="text-secondary" style="font-size:0.9rem;">Based on sanitized actual corruption files.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact -->
+    <section class="section" id="impact" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <div class="reveal">
+            <h2 class="section-title">Why This Matters</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--text-secondary);">
+                Technology alone cannot solve corruption, but it can illuminate the dark corners where it thrives. By
+                understanding the mechanics of theft, citizens and reformers are better equipped to demand
+                accountability.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="cta-title">Accountability Starts with Awareness</h2>
+                <a href="#" class="btn btn-secondary" style="font-size: 1.1rem; padding: 16px 32px;">Launch the
+                    Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Public Procurement Transparency Simulator. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">A civic technology initiative for better
+                governance.</p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+
+</html>
