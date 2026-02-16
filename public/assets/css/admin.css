@@ -1,0 +1,156 @@
+/* ===============================
+   TSFreighters Admin Dashboard
+   =============================== */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fc;
+  color: #333;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #1a2238 0%, #0e1425 100%);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  padding-top: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar .nav-item {
+  padding: 12px 20px;
+  margin: 5px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.sidebar .nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar .nav-item i {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.sidebar .nav-item span {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  margin-left: 240px;
+  padding: 25px;
+  transition: margin-left 0.3s ease;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  border-radius: 12px;
+}
+
+.navbar .navbar-brand {
+  font-weight: 600;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* ===== Stat Cards ===== */
+.stat-card {
+  border-radius: 16px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card .icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Tables ===== */
+.table thead {
+  background-color: #f1f3f9;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+/* ===== Cards ===== */
+.card {
+  border-radius: 14px;
+}
+
+.card-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+/* ===== Activity List ===== */
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991px) {
+  .sidebar {
+    left: -240px;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
