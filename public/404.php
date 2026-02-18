@@ -14,7 +14,7 @@ echo <<<HTML
 <head>
     <meta charset="UTF-8">
     <title>404 - Page Not Found</title>
-    <meta http-equiv="refresh" content="5; url=/tsfreighters/public/index.php">
+    <meta http-equiv="refresh" content="5; url=/KE-AI-PLATFORM/public/index.php">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -89,7 +89,7 @@ echo <<<HTML
     </style>
     <script>
         setTimeout(function () {
-            window.location.replace('/tsfreighters/public/index.php');
+            window.location.replace('/KE-AI-PLATFORM/public/index.php');
         }, 5000);
     </script>
 </head>
@@ -102,7 +102,7 @@ echo <<<HTML
 
         </div>
         <p>Redirecting to homepage shortly.</p>
-        <a href="/tsfreighters/public/index.php" class="button">Go to Homepage</a>
+        <a href="/KE-AI-PLATFORM/public/index.php" class="button">Go to Homepage</a>
     </div>
 
 </body>

@@ -180,6 +180,20 @@
         box-shadow: 0 8px 25px rgba(255, 179, 71, 0.5);
     }
 
+    /* Dashboard-specific button style */
+    .btn-dashboard {
+        background: linear-gradient(135deg, var(--gold), #FF9500);
+        color: var(--primary);
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(255, 179, 71, 0.3);
+    }
+
+    .btn-dashboard:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(255, 179, 71, 0.5);
+        color: var(--primary);
+    }
+
     /* ===== MOBILE MENU STYLES ===== */
     .mobile-menu-toggle {
         display: none;
@@ -373,7 +387,8 @@
         }
         
         .nav-buttons .btn-text,
-        .nav-buttons .btn-primary {
+        .nav-buttons .btn-primary,
+        .nav-buttons .btn-dashboard {
             display: none;
         }
         
@@ -473,6 +488,7 @@
         width: 50%;
     }
 </style>
+
 <!-- Navigation -->
 <nav class="navbar" id="navbar">
     <div class="container nav-content">
@@ -486,12 +502,23 @@
             <li><a href="#oversight" class="nav-link">Oversight</a></li>
             <li><a href="#impact" class="nav-link">Impact</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="/KE-AI-PLATFORM/public/index.php?controller=dashboard&action=index" class="btn btn-primary">View</a></li>
+    
         </ul>
         
-        <!-- Desktop Action Buttons -->
+        <!-- Desktop Action Buttons with Dashboard Link -->
         <div class="nav-buttons">
-            <a href="#" class="btn btn-text">Login</a>
-            <a href="#" class="btn btn-primary">Launch</a>
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <!-- Show Dashboard button if user is logged in -->
+                <a href="/KE-AI-PLATFORM/public/index.php?controller=dashboard&action=index" class="btn btn-dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="/KE-AI-PLATFORM/public/index.php?controller=auth&action=logout" class="btn btn-text">Logout</a>
+            <?php else: ?>
+                <!-- Show Login/Register if user is not logged in -->
+                <a href="/KE-AI-PLATFORM/public/index.php?controller=auth&action=login" class="btn btn-text">Login</a>
+                <a href="/KE-AI-PLATFORM/public/index.php?controller=auth&action=register" class="btn btn-primary">Launch</a>
+            <?php endif; ?>
             
             <!-- Mobile Menu Toggle (Hidden on Desktop) -->
             <div class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -513,12 +540,70 @@
         </ul>
         
         <div class="mobile-buttons">
-            <a href="#" class="btn btn-text">Login</a>
-            <a href="#" class="btn btn-primary">Launch Platform</a>
-            <a href="#" class="btn btn-secondary">Watch Demo</a>
-        </div>
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <!-- Mobile Dashboard buttons -->
+                <a href="/KE-AI-PLATFORM/public/index.php?controller=dashboard&action=index" class="btn btn-dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="/KE-AI-PLATFORM/public/index.php?controller=auth&action=logout" class="btn btn-text">Logout</a>
+            <?php else: ?>
+                <!-- Mobile Login/Register buttons -->
+                <a href="/KE-AI-PLATFORM/public/index.php?controller=auth&action=login" class="btn btn-text">Login</a>
+               <a href="/KE-AI-PLATFORM/public/index.php?controller=auth&action=register" class="btn btn-primary">Launch Platform</a>
+               <a href="/KE-AI-PLATFORM/public/index.php?controller=dashboard&action=index" class="btn btn-primary">View</a>
+            <?php endif; ?>
+     </div>
     </div>
     
     <!-- Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
+
+<!-- Add Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    
+    function toggleMobileMenu() {
+        mobileMenuToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    menuOverlay.addEventListener('click', toggleMobileMenu);
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', toggleMobileMenu);
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>

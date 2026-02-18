@@ -1,0 +1,147 @@
+[16-Feb-2026 18:27:24 Africa/Nairobi] PHP Fatal error:  Cannot declare class Auth, because the name is already in use in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\auth\auth.php on line 4
+[2026-02-16 18:27:24] FATAL: Cannot declare class Auth, because the name is already in use in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\auth\auth.php on line 4
+[16-Feb-2026 16:36:04 Europe/Berlin] PHP Warning:  require_once(app/views/auth/register.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 70
+[16-Feb-2026 16:36:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/auth/register.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:70
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->register()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 70
+[2026-02-16 16:36:05] FATAL: Uncaught Error: Failed opening required 'app/views/auth/register.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:70
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->register()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 70
+[16-Feb-2026 16:40:08 Europe/Berlin] PHP Warning:  require_once(app/views/auth/login.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 16:40:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[2026-02-16 16:40:08] FATAL: Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 16:44:33 Europe/Berlin] PHP Warning:  require_once(app/views/auth/login.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 16:44:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[2026-02-16 16:44:33] FATAL: Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 16:54:52 Europe/Berlin] PHP Warning:  require_once(app/views/auth/login.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 16:54:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[2026-02-16 16:54:52] FATAL: Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 17:12:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Auth::emailExists() in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:129
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->register_process()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 129
+[2026-02-16 17:12:56] FATAL: Uncaught Error: Call to undefined method Auth::emailExists() in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:129
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->register_process()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 129
+[16-Feb-2026 17:13:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Auth::emailExists() in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:129
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->register_process()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 129
+[2026-02-16 17:13:00] FATAL: Uncaught Error: Call to undefined method Auth::emailExists() in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:129
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->register_process()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 129
+[16-Feb-2026 17:13:17 Europe/Berlin] PHP Warning:  require_once(app/views/auth/login.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 17:13:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[2026-02-16 17:13:17] FATAL: Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 17:18:00 Europe/Berlin] PHP Warning:  require_once(app/views/auth/login.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 17:18:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[2026-02-16 17:18:00] FATAL: Uncaught Error: Failed opening required 'app/views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 17:19:55 Europe/Berlin] PHP Warning:  require_once(/../views/auth/login.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 17:19:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '/../views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[2026-02-16 17:19:55] FATAL: Uncaught Error: Failed opening required '/../views/auth/login.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php:199
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): AuthController->login()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuthController.php on line 199
+[16-Feb-2026 17:39:12 Europe/Berlin] PHP Warning:  require_once(app/views/dashboard/auditor_dashboard.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php on line 35
+[16-Feb-2026 17:39:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/dashboard/auditor_dashboard.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php:35
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): DashboardController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php on line 35
+[2026-02-16 17:39:12] FATAL: Uncaught Error: Failed opening required 'app/views/dashboard/auditor_dashboard.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php:35
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): DashboardController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php on line 35
+[16-Feb-2026 17:43:24 Europe/Berlin] PHP Warning:  require_once(app/views/dashboard/auditor_dashboard.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php on line 35
+[16-Feb-2026 17:43:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/dashboard/auditor_dashboard.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php:35
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): DashboardController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php on line 35
+[2026-02-16 17:43:24] FATAL: Uncaught Error: Failed opening required 'app/views/dashboard/auditor_dashboard.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php:35
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): DashboardController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php on line 35
+[17-Feb-2026 08:17:16 Europe/Berlin] PHP Warning:  require_once(app/views/layout/dashboardnavbar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php on line 963
+[17-Feb-2026 08:17:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/layout/dashboardnavbar.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php:963
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php(36): require_once()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): DashboardController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php on line 963
+[2026-02-17 08:17:16] FATAL: Uncaught Error: Failed opening required 'app/views/layout/dashboardnavbar.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php:963
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php(36): require_once()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): DashboardController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php on line 963
+[17-Feb-2026 08:17:57 Europe/Berlin] PHP Warning:  require_once(app/views/layout/dashboardnavbar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php on line 18
+[17-Feb-2026 08:17:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'app/views/layout/dashboardnavbar.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php:18
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php(36): require_once()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): DashboardController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php on line 18
+[2026-02-17 08:17:57] FATAL: Uncaught Error: Failed opening required 'app/views/layout/dashboardnavbar.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php:18
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\DashboardController.php(36): require_once()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(71): DashboardController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\dashboard\auditor_dashboard.php on line 18
