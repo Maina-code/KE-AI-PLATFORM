@@ -1,0 +1,2 @@
+[16-Feb-2026 16:38:25 Europe/Berlin] PHP Warning:  include(C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auth/../layout/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auth\register.php on line 31
+[16-Feb-2026 16:38:25 Europe/Berlin] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auth/../layout/header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auth\register.php on line 31

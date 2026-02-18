@@ -32,10 +32,8 @@
                 <h1 class="hero-title">Revealing the Hidden Mechanics of Procurement Corruption</h1>
                 <p class="hero-subtitle">An interactive simulation that exposes systemic vulnerabilities, demonstrates
                     audit escalation, and promotes accountability in public finance.</p>
-                <div class="hero-cta">
-                    <a href="#" class="btn btn-secondary">Explore the Simulation</a>
-                    <a href="#" class="btn btn-primary">How It Works</a>
-                </div>
+<a href="/KE-AI-PLATFORM/public/index.php?controller=auth&action=register" class="btn btn-secondary">Get Started</a>
+<a href="/KE-AI-PLATFORM/public/index.php?controller=auth&action=login" class="btn btn-primary">Sign In</a>
             </div>
 
             <div class="hero-visual reveal">
