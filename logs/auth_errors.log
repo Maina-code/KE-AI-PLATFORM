@@ -1,0 +1,1 @@
+[2026-02-24 16:54:33] Database error in create(): SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value

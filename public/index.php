@@ -51,12 +51,14 @@ spl_autoload_register(function ($className) {
 });
 
 // Start session
-Session::start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Initialize router
 $router = new Router();
 
-// Define routes
+// Define routes - THIS IS LINE 60 WHERE ERROR OCCURS
 $router->add('', ['controller' => 'Auth', 'action' => 'login']);
 $router->add('login', ['controller' => 'Auth', 'action' => 'login']);
 $router->add('dashboard', ['controller' => 'Dashboard', 'action' => 'index']);
@@ -64,6 +66,7 @@ $router->add('transactions', ['controller' => 'Transaction', 'action' => 'index'
 $router->add('transaction/analyze', ['controller' => 'Transaction', 'action' => 'analyze']);
 $router->add('ai/analyze', ['controller' => 'AI', 'action' => 'analyze']);
 $router->add('logout', ['controller' => 'Auth', 'action' => 'logout']);
+$router->add('register', ['controller' => 'Auth', 'action' => 'register']);
 
 // Get URL parameters
 $controllerName = $_GET['controller'] ?? 'Auth';
