@@ -1,388 +1,285 @@
 <?php
-// Use require_once to prevent multiple inclusions
-require_once __DIR__ . '/../models/auth/Auth.php';
+require_once __DIR__ . '/../models/auth/auth.php';
 
 class AuthController {
-    private $authModel;
+    private $auth;
     
     public function __construct() {
-        $this->authModel = new Auth();
+        $this->auth = new Auth();
         
         // Start session if not already started
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
     }
-    
     /**
-     * Display landing page with register/login options
-     */
-    public function landing() {
-        // Check if user is already logged in
-        if (isset($_SESSION['user_id'])) {
-            header('Location: index.php?controller=dashboard&action=index');
-            exit();
-        }
-        
-        // Generate CSRF token for forms
-        if (empty($_SESSION['csrf_token'])) {
-            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-        }
-        
-        // Generate simple math captcha
-        $num1 = rand(1, 9);
-        $num2 = rand(1, 9);
-        $_SESSION['math_answer'] = $num1 + $num2;
-        
-        // Pass captcha values to view
-        $captcha_num1 = $num1;
-        $captcha_num2 = $num2;
-        
-        // Include the landing page view
-        require_once 'app/views/landing.php';
+ * Handle user registration
+ */
+public function register() {
+    // If already logged in, redirect to dashboard
+    if (isset($_SESSION['user_id'])) {
+        $this->redirectToDashboard($_SESSION['user_role']);
+        return;
     }
     
-    /**
-     * Display registration form
-     */
-    public function register() {
-        // Check if user is already logged in
-        if (isset($_SESSION['user_id'])) {
-            header('Location: index.php?controller=dashboard&action=index');
-            exit();
-        }
-        
-        // Generate CSRF token if not exists
-        if (empty($_SESSION['csrf_token'])) {
-            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-        }
-        
-        // Generate simple math captcha
-        $num1 = rand(1, 9);
-        $num2 = rand(1, 9);
-        $_SESSION['math_answer'] = $num1 + $num2;
-        
-        // Pass captcha values to view
-        $captcha_num1 = $num1;
-        $captcha_num2 = $num2;
-        
-        // Include the registration view
-       require_once __DIR__ . '/../views/auth/register.php';
-
-        }
+    $errors = [];
+    $success = '';
     
-    /**
-     * Process registration form submission
-     */
-    public function register_process() {
-        // Set header for JSON response
-        header('Content-Type: application/json');
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Get form data
+        $username = trim($_POST['username'] ?? '');
+        $full_name = trim($_POST['full_name'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $phone = trim($_POST['phone'] ?? '');
+        $password = $_POST['password'] ?? '';
+        $confirm_password = $_POST['confirm_password'] ?? '';
+        $role = $_POST['role'] ?? 'auditor'; // Default role
         
-        try {
-            // Check if it's a POST request
-            if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-                throw new Exception('Invalid request method');
-            }
-            
-            // Validate CSRF token
-            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-                throw new Exception('Invalid security token');
-            }
-            
-            // Validate required fields
-            $required_fields = ['full_name', 'email', 'password', 'confirm', 'captcha'];
-            foreach ($required_fields as $field) {
-                if (!isset($_POST[$field]) || trim($_POST[$field]) === '') {
-                    throw new Exception('All fields are required');
-                }
-            }
-            
-            // Validate captcha
-            if (!isset($_POST['captcha']) || (int)$_POST['captcha'] !== (int)$_SESSION['math_answer']) {
-                throw new Exception('Incorrect math answer. Please try again.');
-            }
-            
-            // Sanitize inputs
-            $full_name = trim(htmlspecialchars($_POST['full_name']));
-            $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
-            $phone = isset($_POST['phone']) ? trim(htmlspecialchars($_POST['phone'])) : '';
-            $password = $_POST['password'];
-            $confirm = $_POST['confirm'];
-            
-            // Validate email
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                throw new Exception('Invalid email format');
-            }
-            
-            // Validate password strength
-            $password_errors = $this->validatePassword($password);
-            if (!empty($password_errors)) {
-                throw new Exception(implode(' ', $password_errors));
-            }
-            
-            // Check if passwords match
-            if ($password !== $confirm) {
-                throw new Exception('Passwords do not match');
-            }
-            
-            // Check if email already exists
-            if ($this->authModel->emailExists($email)) {
-                throw new Exception('Email already registered');
-            }
-            
-            // Hash password
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            
-            // Prepare user data
+        // Validate inputs
+        if (empty($username)) {
+            $errors[] = "Username is required";
+        } elseif (strlen($username) < 3) {
+            $errors[] = "Username must be at least 3 characters";
+        } elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
+            $errors[] = "Username can only contain letters, numbers, and underscores";
+        }
+        
+        if (empty($full_name)) {
+            $errors[] = "Full name is required";
+        }
+        
+        if (empty($email)) {
+            $errors[] = "Email is required";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Invalid email format";
+        }
+        
+        if (empty($phone)) {
+            $errors[] = "Phone number is required";
+        } elseif (!preg_match('/^[0-9\+\-\(\)\s]+$/', $phone)) {
+            $errors[] = "Invalid phone number format";
+        }
+        
+        if (empty($password)) {
+            $errors[] = "Password is required";
+        } elseif (strlen($password) < 8) {
+            $errors[] = "Password must be at least 8 characters";
+        } elseif (!preg_match('/[A-Z]/', $password)) {
+            $errors[] = "Password must contain at least one uppercase letter";
+        } elseif (!preg_match('/[a-z]/', $password)) {
+            $errors[] = "Password must contain at least one lowercase letter";
+        } elseif (!preg_match('/[0-9]/', $password)) {
+            $errors[] = "Password must contain at least one number";
+        }
+        
+        if ($password !== $confirm_password) {
+            $errors[] = "Passwords do not match";
+        }
+        
+        // Check if username already exists
+        if (empty($errors) && $this->auth->usernameExists($username)) {
+            $errors[] = "Username already taken";
+        }
+        
+        // Check if email already exists
+        if (empty($errors) && $this->auth->emailExists($email)) {
+            $errors[] = "Email already registered";
+        }
+        
+        // If no errors, create user
+        if (empty($errors)) {
             $user_data = [
+                'username' => $username,
                 'full_name' => $full_name,
                 'email' => $email,
                 'phone' => $phone,
-                'password' => $hashed_password,
+                'password' => $password, // Will be hashed in create() method
+                'role' => $role,
                 'created_at' => date('Y-m-d H:i:s')
             ];
             
-            // Register user
-            $user_id = $this->authModel->create($user_data);
+            $user_id = $this->auth->create($user_data);
             
-            if (!$user_id) {
-                throw new Exception('Registration failed. Please try again.');
+            if ($user_id) {
+                $success = "Registration successful! You can now login.";
+                
+                // Clear form data
+                $_POST = [];
+                
+                // Optional: Auto login after registration
+                // $user = $this->auth->authenticate($email, $password);
+                // if ($user) {
+                //     $_SESSION['user_id'] = $user['id'];
+                //     $_SESSION['user_name'] = $user['full_name'];
+                //     $_SESSION['user_email'] = $user['email'];
+                //     $_SESSION['user_role'] = $user['role'];
+                //     $this->redirectToDashboard($user['role']);
+                // }
+            } else {
+                $errors[] = "Registration failed. Please try again.";
             }
-            
-            // Clear captcha from session
-            unset($_SESSION['math_answer']);
-            
-            // Return success response
-            echo json_encode([
-                'status' => 'success',
-                'message' => 'Registration successful! You can now login.',
-                'user_id' => $user_id
-            ]);
-            
-        } catch (Exception $e) {
-            // Log error
-            $this->logError($e->getMessage(), $_POST);
-            
-            // Return error response
-            echo json_encode([
-                'status' => 'error',
-                'message' => $e->getMessage()
-            ]);
         }
     }
     
+    // Load registration view
+    require_once __DIR__ . '/../views/auth/register.php';
+}
+/**
+ * Check if username exists (AJAX endpoint)
+ */
+public function checkUsername() {
+    $username = $_GET['username'] ?? '';
+    
+    if (empty($username)) {
+        $this->json(['exists' => false]);
+        return;
+    }
+    
+    $exists = $this->auth->usernameExists($username);
+    
+    header('Content-Type: application/json');
+    echo json_encode(['exists' => $exists]);
+    exit();
+}
+
+/**
+ * Helper method to return JSON response
+ */
+private function json($data) {
+    header('Content-Type: application/json');
+    echo json_encode($data);
+    exit();
+}
+    
     /**
-     * Display login form
+     * Handle login
      */
     public function login() {
-        // Check if user is already logged in
-        if (isset($_SESSION['user_id'])) {
-            header('Location: index.php?controller=dashboard&action=index');
-            exit();
+        // If already logged in, redirect to appropriate dashboard
+        if (isset($_SESSION['user_id']) && isset($_SESSION['user_role'])) {
+            $this->redirectToDashboard($_SESSION['user_role']);
+            return;
         }
         
-        // Generate CSRF token if not exists
-        if (empty($_SESSION['csrf_token'])) {
-            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        $error = '';
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'] ?? '';
+            $password = $_POST['password'] ?? '';
+            
+            if (empty($email) || empty($password)) {
+                $error = "Please enter both email and password";
+            } else {
+                $user = $this->auth->authenticate($email, $password);
+                
+                if ($user) {
+                    // Set session variables
+                    $_SESSION['user_id'] = $user['id'];
+                    $_SESSION['user_name'] = $user['full_name'];
+                    $_SESSION['user_email'] = $user['email'];
+                    $_SESSION['user_role'] = $user['role']; // THIS IS CRITICAL
+                    
+                    // Debug - log successful login
+                    error_log("Login successful for user: " . $email . " with role: " . $user['role']);
+                    
+                    // Redirect based on role
+                    $this->redirectToDashboard($user['role']);
+                    return;
+                } else {
+                    $error = "Invalid email or password";
+                    error_log("Login failed for email: " . $email);
+                }
+            }
         }
         
-        // Generate simple math captcha
-        $num1 = rand(1, 9);
-        $num2 = rand(1, 9);
-        $_SESSION['math_answer'] = $num1 + $num2;
-        
-        // Pass captcha values to view
-        $captcha_num1 = $num1;
-        $captcha_num2 = $num2;
-        
-        // Include the login view
+        // Load login view
         require_once __DIR__ . '/../views/auth/login.php';
     }
     
     /**
-     * Process login form submission
+     * Redirect user to their specific dashboard based on role
      */
-    public function login_process() {
-        // Set header for JSON response
-        header('Content-Type: application/json');
-        
-        try {
-            // Check if it's a POST request
-            if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-                throw new Exception('Invalid request method');
-            }
-            
-            // Validate CSRF token
-            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-                throw new Exception('Invalid security token');
-            }
-            
-            // Validate captcha
-            if (!isset($_POST['captcha']) || (int)$_POST['captcha'] !== (int)$_SESSION['math_answer']) {
-                throw new Exception('Incorrect math answer. Please try again.');
-            }
-            
-            // Validate required fields
-            if (!isset($_POST['email']) || !isset($_POST['password'])) {
-                throw new Exception('Email and password are required');
-            }
-            
-            // Sanitize inputs
-            $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
-            $password = $_POST['password'];
-            
-            // Validate email
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                throw new Exception('Invalid email format');
-            }
-            
-            // Get user by email
-            $user = $this->authModel->getUserByEmail($email);
-            
-            if (!$user) {
-                throw new Exception('Invalid email or password');
-            }
-            
-            // Verify password
-            if (!password_verify($password, $user['password'])) {
-                throw new Exception('Invalid email or password');
-            }
-            
-            // Set session variables
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['full_name'];
-            $_SESSION['user_email'] = $user['email'];
-            $_SESSION['logged_in'] = true;
-            
-            // Regenerate session ID for security
-            session_regenerate_id(true);
-            
-            // Update last login time
-            $this->authModel->updateLastLogin($user['id']);
-            
-            // Clear captcha from session
-            unset($_SESSION['math_answer']);
-            
-            // Generate new CSRF token
-            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-            
-            // Return success response
-            echo json_encode([
-                'status' => 'success',
-                'message' => 'Login successful! Redirecting...',
-                'redirect' => 'index.php?controller=dashboard&action=index'
-            ]);
-            
-        } catch (Exception $e) {
-            // Log error
-            $this->logError($e->getMessage(), ['email' => $_POST['email'] ?? '']);
-            
-            // Return error response
-            echo json_encode([
-                'status' => 'error',
-                'message' => $e->getMessage()
-            ]);
+    private function redirectToDashboard($role) {
+        switch ($role) {
+            case 'auditor_general':
+                header('Location: /KE-AI-PLATFORM/public/index.php?controller=auditor&action=dashboard');
+                break;
+            case 'auditor':
+                header('Location: /KE-AI-PLATFORM/public/index.php?controller=dashboard&action=index');
+                break;
+            case 'admin':
+                header('Location: /KE-AI-PLATFORM/public/index.php?controller=admin&action=dashboard');
+                break;
+            default:
+                header('Location: /KE-AI-PLATFORM/public/index.php?controller=dashboard&action=index');
         }
+        exit();
     }
     
     /**
-     * Logout user
+     * Handle logout
      */
     public function logout() {
         // Clear all session variables
         $_SESSION = array();
         
-        // Destroy the session cookie
-        if (isset($_COOKIE[session_name()])) {
-            setcookie(session_name(), '', time()-3600, '/');
-        }
-        
         // Destroy the session
         session_destroy();
         
-        // Redirect to landing page
-        header('Location: index.php?controller=auth&action=landing');
+        // Redirect to login page
+        header('Location: /KE-AI-PLATFORM/public/index.php?controller=auth&action=login');
         exit();
     }
     
     /**
-     * Log errors to file
+     * Check if user is logged in
      */
-    private function logError($message, $data = []) {
-        $log_file = 'C:/xampp/htdocs/KE-AI-PLATFORM/private/error_logs/login_error_log.txt';
-        
-        // Create directory if it doesn't exist
-        $log_dir = dirname($log_file);
-        if (!is_dir($log_dir)) {
-            mkdir($log_dir, 0777, true);
+    public static function isLoggedIn() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
         }
-        
-        $log_message = "[" . date('Y-m-d H:i:s') . "] ERROR: " . $message;
-        
-        if (!empty($data)) {
-            // Mask sensitive data
-            $masked_data = $data;
-            if (isset($masked_data['password'])) {
-                $masked_data['password'] = '***MASKED***';
-            }
-            if (isset($masked_data['confirm'])) {
-                $masked_data['confirm'] = '***MASKED***';
-            }
-            if (isset($masked_data['csrf_token'])) {
-                $masked_data['csrf_token'] = '***MASKED***';
-            }
-            $log_message .= " | Data: " . json_encode($masked_data);
-        }
-        
-        $log_message .= " | IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown');
-        $log_message .= " | Session ID: " . (session_id() ?: 'no_session');
-        $log_message .= PHP_EOL;
-        
-        error_log($log_message, 3, $log_file);
+        return isset($_SESSION['user_id']);
     }
     
     /**
-     * Validate password strength
+     * Get current user role
      */
-    private function validatePassword($password) {
-        $errors = [];
-        
-        if (strlen($password) < 8) {
-            $errors[] = 'Password must be at least 8 characters long.';
+    public static function getUserRole() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
         }
-        if (!preg_match('/[a-z]/', $password)) {
-            $errors[] = 'Password must contain at least one lowercase letter.';
-        }
-        if (!preg_match('/[A-Z]/', $password)) {
-            $errors[] = 'Password must contain at least one uppercase letter.';
-        }
-        if (!preg_match('/[0-9]/', $password)) {
-            $errors[] = 'Password must contain at least one number.';
-        }
-        if (!preg_match('/[^a-zA-Z0-9]/', $password)) {
-            $errors[] = 'Password must contain at least one special character.';
-        }
-        
-        return $errors;
+        return $_SESSION['user_role'] ?? null;
     }
     
     /**
-     * Log client-side errors
+     * Require authentication - redirect to login if not authenticated
      */
-    public function log_error() {
-        header('Content-Type: application/json');
+    public static function requireAuth() {
+        if (!self::isLoggedIn()) {
+            header('Location: /KE-AI-PLATFORM/public/index.php?controller=auth&action=login');
+            exit();
+        }
+    }
+    
+    /**
+     * Require specific role - redirect if wrong role
+     */
+    public static function requireRole($required_role) {
+        self::requireAuth();
         
-        try {
-            $input = json_decode(file_get_contents('php://input'), true);
-            
-            if ($input && isset($input['error'])) {
-                $this->logError('Client Error: ' . $input['error'], $input);
-                echo json_encode(['status' => 'success']);
-            } else {
-                echo json_encode(['status' => 'error', 'message' => 'No error data received']);
+        if ($_SESSION['user_role'] !== $required_role) {
+            // Redirect to appropriate dashboard based on actual role
+            switch ($_SESSION['user_role']) {
+                case 'auditor_general':
+                    header('Location: /KE-AI-PLATFORM/public/index.php?controller=auditor&action=dashboard');
+                    break;
+                case 'auditor':
+                    header('Location: /KE-AI-PLATFORM/public/index.php?controller=dashboard&action=index');
+                    break;
+                default:
+                    header('Location: /KE-AI-PLATFORM/public/index.php?controller=auth&action=login');
             }
-        } catch (Exception $e) {
-            echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+            exit();
         }
     }
 }

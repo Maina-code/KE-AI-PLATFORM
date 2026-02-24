@@ -1,14 +1,24 @@
 <?php
+/**
+ * Router Class - Handles URL routing
+ */
 class Router {
     protected $routes = [];
     
-    public function add($route, $params) {
+    // THIS METHOD WAS MISSING - ADD IT
+    public function add($route, $params = []) {
         $this->routes[$route] = $params;
     }
     
     public function dispatch($controllerName, $action, $id = null) {
         // Convert to proper controller class name
-        $controllerClass = $controllerName . 'Controller';
+        $controllerClass = ucfirst($controllerName) . 'Controller';
+        
+        // Special case for 'auditor' controller
+        if ($controllerName === 'auditor') {
+            $controllerClass = 'AuditorController';
+        }
+        
         $controllerFile = __DIR__ . '/../controllers/' . $controllerClass . '.php';
         
         if (file_exists($controllerFile)) {
@@ -16,25 +26,21 @@ class Router {
             $controller = new $controllerClass();
             
             if (method_exists($controller, $action)) {
-                // Call controller action with or without ID
                 if ($id) {
                     $controller->$action($id);
                 } else {
                     $controller->$action();
                 }
             } else {
-                // Action not found
-                $this->error404("Action '$action' not found");
+                die("Action '$action' not found in controller '$controllerClass'");
             }
         } else {
-            // Controller not found
-            $this->error404("Controller '$controllerClass' not found");
+            die("Controller file not found: $controllerFile");
         }
     }
     
-    public function error404($message = 'Page not found') {
-        http_response_code(404);
-        echo "<h1>404 - $message</h1>";
-        exit();
+    // Optional: Add a method to get all routes
+    public function getRoutes() {
+        return $this->routes;
     }
 }
