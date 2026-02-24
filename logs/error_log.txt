@@ -207,3 +207,264 @@ Stack trace:
 #2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
 #3 {main}
   thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 29
+[24-Feb-2026 19:17:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "TransactionController" not found in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php:26
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 26
+[2026-02-24 19:17:44] FATAL: Uncaught Error: Class "TransactionController" not found in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php:26
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 26
+[24-Feb-2026 19:23:54 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "." in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 19
+[2026-02-24 19:23:54] FATAL: syntax error, unexpected token "." in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 19
+[24-Feb-2026 19:24:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "TransactionController" not found in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php:26
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 26
+[2026-02-24 19:24:39] FATAL: Uncaught Error: Class "TransactionController" not found in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php:26
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 26
+[24-Feb-2026 19:25:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "TransactionController" not found in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php:23
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 23
+[2026-02-24 19:25:07] FATAL: Uncaught Error: Class "TransactionController" not found in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php:23
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 23
+[24-Feb-2026 19:26:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "TransactionController" not found in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php:24
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 24
+[2026-02-24 19:26:22] FATAL: Uncaught Error: Class "TransactionController" not found in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php:24
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php on line 24
+[24-Feb-2026 19:28:32 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:28:32] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 19:29:03 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:29:03] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 19:29:14 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:29:14] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 19:29:15 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:29:15] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 19:29:15 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:29:15] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 19:29:16 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:29:16] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 19:29:16 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:29:16] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 19:29:16 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:29:16] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 19:29:16 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[2026-02-24 19:29:16] FATAL: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nuru_ai.departments' doesn't exist in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php(20): PDO->query('SELECT t.*, d.n...')
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(36): Transaction->findAll()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#3 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#4 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\models\Transaction.php on line 20
+[24-Feb-2026 20:23:33 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layouts/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[24-Feb-2026 20:23:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layouts/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:15
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[2026-02-24 20:23:33] FATAL: Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layouts/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:15
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[24-Feb-2026 20:24:09 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layouts/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[24-Feb-2026 20:24:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layouts/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:15
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[2026-02-24 20:24:09] FATAL: Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layouts/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:15
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[24-Feb-2026 20:29:23 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layout/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[24-Feb-2026 20:29:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:15
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[2026-02-24 20:29:23] FATAL: Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:15
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[24-Feb-2026 20:29:36 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layout/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[24-Feb-2026 20:29:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:15
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[2026-02-24 20:29:36] FATAL: Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../views/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:15
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 15
+[24-Feb-2026 20:30:44 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../../views/layout/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 12
+[24-Feb-2026 20:30:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../../views/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:12
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 12
+[2026-02-24 20:30:44] FATAL: Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\core/../../views/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php:12
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\TransactionController.php(45): Controller->view('transactions/in...', Array)
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(30): TransactionController->index()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('transaction', 'index', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Controller.php on line 12
