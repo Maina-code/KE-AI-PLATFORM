@@ -1,4 +1,23 @@
-[24-Feb-2026 16:41:43 Europe/Berlin] Login failed for email: auditor@gok.ke
-[24-Feb-2026 16:43:55 Europe/Berlin] Login failed for email: auditor@gok.ke
-[24-Feb-2026 16:52:57 Europe/Berlin] Login failed for email: auditor@gok.ke
-[24-Feb-2026 16:53:15 Europe/Berlin] Login failed for email: auditor@gok.ke
+[24-Feb-2026 17:02:50 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers/../views/auditor/dashboard.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php on line 20
+[24-Feb-2026 17:02:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers/../views/auditor/dashboard.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(32): AuditorController->dashboard()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('auditor', 'dashboard', NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php on line 20
+[2026-02-24 17:02:50] FATAL: Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers/../views/auditor/dashboard.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(32): AuditorController->dashboard()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('auditor', 'dashboard', NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php on line 20
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 7
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 7
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Undefined variable $stats in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 20
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 20
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Undefined variable $stats in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 28
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 28
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Undefined variable $stats in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 36
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 36
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Undefined variable $transactions in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 72
+[24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 72
