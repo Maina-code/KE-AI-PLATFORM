@@ -1,7 +1,5 @@
 <?php
-/**
- * Router Class - Handles URL routing
- */
+
 class Router {
     protected $routes = [];
     
@@ -19,7 +17,7 @@ class Router {
             $controllerClass = 'AuditorController';
         }
         
-        $controllerFile = __DIR__ . '/../controllers/' . $controllerClass . '.php';
+        $controllerFile = __DIR__ . '/../Controllers/' . $controllerClass . '.php';
         
         if (file_exists($controllerFile)) {
             require_once $controllerFile;

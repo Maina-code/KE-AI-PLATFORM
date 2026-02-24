@@ -1,7 +1,4 @@
 <?php
-/**
- * Base Controller - All controllers extend this
- */
 class Controller {
     
     protected function view($view, $data = []) {
@@ -12,9 +9,9 @@ class Controller {
         $viewFile = __DIR__ . '/../views/' . $view . '.php';
         
         if (file_exists($viewFile)) {
-            require_once __DIR__ . '/../views/layouts/header.php';
+            require_once __DIR__ . '/../views/layout/header.php';
             require_once $viewFile;
-            require_once __DIR__ . '/../views/layouts/footer.php';
+            require_once __DIR__ . '/../views/layout/header.php';
         } else {
             die("View '$view' not found");
         }
