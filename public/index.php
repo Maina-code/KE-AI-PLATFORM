@@ -31,7 +31,7 @@ register_shutdown_function(function() use ($logFile) {
         }
     }
 });
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../app/config/database.php';
 
 // Autoloader for classes
 spl_autoload_register(function ($className) {
