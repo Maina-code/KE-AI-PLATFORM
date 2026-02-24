@@ -21,3 +21,35 @@ Stack trace:
 [24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 36
 [24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  Undefined variable $transactions in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 72
 [24-Feb-2026 17:05:24 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 72
+[24-Feb-2026 17:30:57 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor/../app/views/auditor/layout/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 2
+[24-Feb-2026 17:30:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor/../app/views/auditor/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php:2
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php(20): require_once()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(32): AuditorController->dashboard()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('auditor', 'dashboard', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 2
+[2026-02-24 17:30:57] FATAL: Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor/../app/views/auditor/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php:2
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php(20): require_once()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(32): AuditorController->dashboard()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('auditor', 'dashboard', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 2
+[24-Feb-2026 17:31:23 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor/app/views/auditor/layout/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 2
+[24-Feb-2026 17:31:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor/app/views/auditor/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php:2
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php(20): require_once()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(32): AuditorController->dashboard()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('auditor', 'dashboard', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 2
+[2026-02-24 17:31:23] FATAL: Uncaught Error: Failed opening required 'C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor/app/views/auditor/layout/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php:2
+Stack trace:
+#0 C:\xampp\htdocs\KE-AI-PLATFORM\app\Controllers\AuditorController.php(20): require_once()
+#1 C:\xampp\htdocs\KE-AI-PLATFORM\app\core\Router.php(32): AuditorController->dashboard()
+#2 C:\xampp\htdocs\KE-AI-PLATFORM\public\index.php(77): Router->dispatch('auditor', 'dashboard', NULL)
+#3 {main}
+  thrown in C:\xampp\htdocs\KE-AI-PLATFORM\app\views\auditor\dashboard.php on line 2
+[24-Feb-2026 17:36:45 Europe/Berlin] Login failed for email: test1@gmail.com
+[24-Feb-2026 17:36:55 Europe/Berlin] Login successful for user: test1@gmail.com with role: auditor_general

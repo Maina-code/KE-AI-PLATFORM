@@ -1,47 +1,50 @@
 <?php
+public function getRecentForAI($limit = 50) {
+    $sql = "SELECT t.*, d.name as department_name, 
+                   d.risk_score as department_risk,
+                   s.created_at as supplier_created_at,
+                   s.risk_score as supplier_risk,
+                   (SELECT COUNT(*) FROM violations WHERE supplier_id = t.supplier_id) as previous_violations
+            FROM transactions t
+            JOIN departments d ON t.department_id = d.id
+            JOIN suppliers s ON t.supplier_id = s.id
+            WHERE t.created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY)
+            ORDER BY t.created_at DESC
+            LIMIT ?";
+    
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([$limit]);
+    return $stmt->fetchAll();
+}
+
 /**
- * Transaction Model
+ * Get unanalyzed transactions
  */
-class Transaction extends Model {
-    protected $table = 'transactions';
+public function getUnanalyzed($limit = 100) {
+    $sql = "SELECT t.*, d.name as department_name, 
+                   d.risk_score as department_risk,
+                   s.created_at as supplier_created_at,
+                   s.risk_score as supplier_risk
+            FROM transactions t
+            JOIN departments d ON t.department_id = d.id
+            JOIN suppliers s ON t.supplier_id = s.id
+            WHERE t.risk_score IS NULL OR t.risk_score = 0
+            ORDER BY t.created_at DESC
+            LIMIT ?";
     
-    public function getStats() {
-        $sql = "SELECT 
-                    COUNT(*) as total,
-                    SUM(CASE WHEN risk_score > 0.7 THEN 1 ELSE 0 END) as high_risk,
-                    SUM(CASE WHEN procurement_type = 'single' THEN 1 ELSE 0 END) as single_source,
-                    SUM(amount) as total_amount
-                FROM transactions";
-        
-        return $this->db->query($sql)->fetch();
-    }
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([$limit]);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Update transaction risk score
+ */
+public function updateRiskScore($id, $score) {
+    $sql = "UPDATE transactions 
+            SET risk_score = ?, ai_analyzed_at = NOW() 
+            WHERE id = ?";
     
-    public function getHighRisk($limit = 10) {
-        $sql = "SELECT * FROM transactions 
-                WHERE risk_score > 0.4 OR procurement_type = 'single'
-                ORDER BY risk_score DESC 
-                LIMIT ?";
-        
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$limit]);
-        return $stmt->fetchAll();
-    }
-    
-    public function getByDepartment($department) {
-        $sql = "SELECT * FROM transactions WHERE department = ? ORDER BY created_at DESC";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$department]);
-        return $stmt->fetchAll();
-    }
-    
-    public function search($keyword) {
-        $sql = "SELECT * FROM transactions 
-                WHERE ref_no LIKE ? OR description LIKE ? OR supplier LIKE ?
-                ORDER BY created_at DESC";
-        
-        $search = "%$keyword%";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$search, $search, $search]);
-        return $stmt->fetchAll();
-    }
+    $stmt = $this->db->prepare($sql);
+    return $stmt->execute([$score, $id]);
 }
