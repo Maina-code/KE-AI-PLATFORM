@@ -1,7 +1,47 @@
 <?php
-// config/system_config.php
-define('SYSTEM_NAME', 'NuruAI Integrity Platform');
-define('SYSTEM_VERSION', '2.0.0');
-define('ENCRYPTION_KEY', 'your-secure-encryption-key-here');
-define('AI_MODEL_ENDPOINT', 'http://localhost:5000/api/predict');
-define('BLOCKCHAIN_NODE', 'http://localhost:8545');
+// config.php - Simple configuration file
+session_start();
+
+// Database configuration
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'nuru_ai');
+
+// Connect to database
+function getDB() {
+    try {
+        $pdo = new PDO(
+            "mysql:host=".DB_HOST.";dbname=".DB_NAME,
+            DB_USER,
+            DB_PASS
+        );
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
+    } catch(PDOException $e) {
+        die("Database connection failed: " . $e->getMessage());
+    }
+}
+
+// Simple authentication
+function isLoggedIn() {
+    return isset($_SESSION['user_id']);
+}
+
+function requireLogin() {
+    if (!isLoggedIn()) {
+        header('Location: index.php');
+        exit();
+    }
+}
+
+// Get current user
+function currentUser() {
+    if (!isLoggedIn()) return null;
+    
+    $pdo = getDB();
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+    $stmt->execute([$_SESSION['user_id']]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+?>
