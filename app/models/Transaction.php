@@ -36,10 +36,6 @@ public function getUnanalyzed($limit = 100) {
     $stmt->execute([$limit]);
     return $stmt->fetchAll();
 }
-
-/**
- * Update transaction risk score
- */
 public function updateRiskScore($id, $score) {
     $sql = "UPDATE transactions 
             SET risk_score = ?, ai_analyzed_at = NOW() 
