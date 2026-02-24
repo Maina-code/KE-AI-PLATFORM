@@ -1,47 +1,63 @@
 <?php
-// app/Core/Controller.php
-
-class Controller
-{
-    protected $viewPath = __DIR__ . '/../Views/';
+/**
+ * Base Controller - All controllers extend this
+ */
+class Controller {
     
-    public function __construct()
-    {
-        // Base controller constructor
-    }
-    
-    /**
-     * Render a view
-     */
-    protected function view($viewFile, $data = [])
-    {
-        // Extract data to variables
+    protected function view($view, $data = []) {
+        // Extract data array to variables
         extract($data);
         
-        // Build the full view path
-        $viewFile = str_replace('.', '/', $viewFile);
-        $fullPath = $this->viewPath . $viewFile . '.php';
+        // Build view path
+        $viewFile = __DIR__ . '/../views/' . $view . '.php';
         
-        // Check if view exists
-        if (file_exists($fullPath)) {
-            require_once $fullPath;
+        if (file_exists($viewFile)) {
+            require_once __DIR__ . '/../views/layouts/header.php';
+            require_once $viewFile;
+            require_once __DIR__ . '/../views/layouts/footer.php';
         } else {
-            // Try with .php extension
-            $fullPath = $this->viewPath . $viewFile;
-            if (file_exists($fullPath)) {
-                require_once $fullPath;
-            } else {
-                echo "View not found: {$viewFile}";
-            }
+            die("View '$view' not found");
         }
     }
     
-    /**
-     * Redirect to another page
-     */
-    protected function redirect($url)
-    {
-        header('Location: ' . $url);
-        exit;
+    protected function model($model) {
+        $modelClass = $model;
+        $modelFile = __DIR__ . '/../models/' . $modelClass . '.php';
+        
+        if (file_exists($modelFile)) {
+            require_once $modelFile;
+            return new $modelClass();
+        } else {
+            die("Model '$model' not found");
+        }
+    }
+    
+    protected function json($data) {
+        header('Content-Type: application/json');
+        echo json_encode($data);
+        exit();
+    }
+    
+    protected function redirect($url) {
+        header("Location: $url");
+        exit();
+    }
+    
+    protected function isPost() {
+        return $_SERVER['REQUEST_METHOD'] === 'POST';
+    }
+    
+    protected function getPost($key = null) {
+        if ($key === null) {
+            return $_POST;
+        }
+        return $_POST[$key] ?? null;
+    }
+    
+    protected function getQuery($key = null) {
+        if ($key === null) {
+            return $_GET;
+        }
+        return $_GET[$key] ?? null;
     }
 }
