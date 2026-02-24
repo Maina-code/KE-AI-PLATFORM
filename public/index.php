@@ -1,28 +1,16 @@
 <?php
 
-// =====================================================
-//  GLOBAL ERROR HANDLING & LOGGING
-// =====================================================
-// Display all errors on screen (development only)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-// Define a custom error log file inside your project root
 $logDir = __DIR__ . '/../logs';          // for controllers, use __DIR__ . '/logs'
 $logFile = $logDir . '/error_log.txt';
-
-// Create the logs directory if it doesn't exist
 if (!is_dir($logDir)) {
     mkdir($logDir, 0755, true);
 }
-
-// Create the error log file if it doesn't exist
 if (!file_exists($logFile)) {
     file_put_contents($logFile, "[" . date('Y-m-d H:i:s') . "] Error log created.\n");
 }
-
-// Set PHP to use this file for all error logging
 ini_set('error_log', $logFile);
 
 // Optional: catch fatal errors via shutdown function
@@ -43,37 +31,44 @@ register_shutdown_function(function() use ($logFile) {
         }
     }
 });
+require_once __DIR__ . '/../config/database.php';
 
-require_once __DIR__ . '/../app/Core/Database.php';
-require_once __DIR__ . '/../app/Core/Auth.php';
-
-// Autoload Controllers (instead of manually requiring each one)
-spl_autoload_register(function ($class) {
-    $controllerPath = __DIR__ . '/../app/Controllers/' . $class . '.php';
-    if (file_exists($controllerPath)) {
-        require_once $controllerPath;
+// Autoloader for classes
+spl_autoload_register(function ($className) {
+    $paths = [
+        __DIR__ . '/../app/core/',
+        __DIR__ . '/../app/controllers/',
+        __DIR__ . '/../app/models/'
+    ];
+    
+    foreach ($paths as $path) {
+        $file = $path . $className . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+            return;
+        }
     }
 });
 
-// Start session/auth
-Auth::init();
+// Start session
+Session::start();
 
-// Default routing values
-$controllerName = ucfirst(strtolower($_GET['controller'] ?? 'home')) . 'Controller';
-$action = $_GET['action'] ?? 'index';
+// Initialize router
+$router = new Router();
 
-// Check if controller exists
-if (class_exists($controllerName)) {
-    $controller = new $controllerName();
+// Define routes
+$router->add('', ['controller' => 'Auth', 'action' => 'login']);
+$router->add('login', ['controller' => 'Auth', 'action' => 'login']);
+$router->add('dashboard', ['controller' => 'Dashboard', 'action' => 'index']);
+$router->add('transactions', ['controller' => 'Transaction', 'action' => 'index']);
+$router->add('transaction/analyze', ['controller' => 'Transaction', 'action' => 'analyze']);
+$router->add('ai/analyze', ['controller' => 'AI', 'action' => 'analyze']);
+$router->add('logout', ['controller' => 'Auth', 'action' => 'logout']);
 
-    // Check if action exists
-    if (method_exists($controller, $action)) {
-        $controller->$action();
-    } else {
-        http_response_code(404);
-        echo "404 - Unknown action: <b>{$action}</b> in {$controllerName}";
-    }
-} else {
-    http_response_code(404);
-    echo "404 - Unknown controller: <b>{$controllerName}</b>";
-}
+// Get URL parameters
+$controllerName = $_GET['controller'] ?? 'Auth';
+$action = $_GET['action'] ?? 'login';
+$id = $_GET['id'] ?? null;
+
+// Dispatch to appropriate controller
+$router->dispatch($controllerName, $action, $id);
