@@ -1,15 +1,16 @@
 <?php
 // Check if class already exists before declaring
 if (!class_exists('Auth')) {
-    require_once __DIR__ . '/../../config/config.php';
+    require_once __DIR__ . '/../../config/database.php';
     
     class Auth {
         private $db;
         private $conn;
         
         public function __construct() {
-            $this->db = new Database();
-            $this->conn = $this->db->getConnection();
+            // FIX: Use getInstance() instead of new Database()
+            $this->db = Database::getInstance();  // This is the correct way
+            $this->conn = $this->db;  // getInstance() returns the PDO connection directly
         }
         
         /**
@@ -35,6 +36,29 @@ if (!class_exists('Auth')) {
                 return false;
             } catch (PDOException $e) {
                 $this->logError("Database error in create(): " . $e->getMessage(), $user_data);
+                return false;
+            }
+        }
+        
+        /**
+         * Authenticate user
+         */
+        public function authenticate($email, $password) {
+            try {
+                $user = $this->getUserByEmail($email);
+                
+                if ($user && password_verify($password, $user['password'])) {
+                    // Update last login
+                    $this->updateLastLogin($user['id']);
+                    
+                    // Remove password from array
+                    unset($user['password']);
+                    return $user;
+                }
+                
+                return false;
+            } catch (Exception $e) {
+                $this->logError("Authentication error: " . $e->getMessage(), ['email' => $email]);
                 return false;
             }
         }
@@ -109,7 +133,7 @@ if (!class_exists('Auth')) {
          * Log errors to file
          */
         private function logError($message, $data = []) {
-            $log_file = 'C:/xampp/htdocs/KE-AI-PLATFORM/private/error_log.txt';
+            $log_file = __DIR__ . '/../../../logs/error_log.txt';
             
             // Create directory if it doesn't exist
             $log_dir = dirname($log_file);
@@ -129,7 +153,7 @@ if (!class_exists('Auth')) {
             }
             
             $log_message .= PHP_EOL;
-            error_log($log_message, 3, $log_file);
+            file_put_contents($log_file, $log_message, FILE_APPEND);
         }
     }
     
