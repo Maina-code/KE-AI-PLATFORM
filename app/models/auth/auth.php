@@ -41,6 +41,20 @@ if (!class_exists('Auth')) {
                 return false;
             }
         }
+                /**
+         * Update last login time
+         */
+        public function updateLastLogin($user_id) {
+            try {
+                $query = "UPDATE users SET last_login = NOW() WHERE id = :id";
+                $stmt = $this->conn->prepare($query);
+                $stmt->bindParam(':id', $user_id);
+                return $stmt->execute();
+            } catch (PDOException $e) {
+                $this->logError("Database error in updateLastLogin(): " . $e->getMessage());
+                return false;
+            }
+        }
         
         /**
          * Get user by email
@@ -77,37 +91,37 @@ if (!class_exists('Auth')) {
                 return false;
             }
         }
+/**
+ * Create a new user
+ */
+public function create($user_data) {
+    try {
+        // Hash password
+        $hashed_password = password_hash($user_data['password'], PASSWORD_DEFAULT);
         
-        /**
-         * Create a new user
-         */
-        public function create($user_data) {
-            try {
-                // Hash password
-                $hashed_password = password_hash($user_data['password'], PASSWORD_DEFAULT);
-                
-                $query = "INSERT INTO users (full_name, email, phone, password, role, created_at) 
-                          VALUES (:full_name, :email, :phone, :password, :role, :created_at)";
-                
-                $stmt = $this->conn->prepare($query);
-                
-                $stmt->bindParam(':full_name', $user_data['full_name']);
-                $stmt->bindParam(':email', $user_data['email']);
-                $stmt->bindParam(':phone', $user_data['phone']);
-                $stmt->bindParam(':password', $hashed_password);
-                $stmt->bindParam(':role', $user_data['role']);
-                $stmt->bindParam(':created_at', $user_data['created_at']);
-                
-                if ($stmt->execute()) {
-                    return $this->conn->lastInsertId();
-                }
-                
-                return false;
-            } catch (PDOException $e) {
-                $this->logError("Database error in create(): " . $e->getMessage());
-                return false;
-            }
+        $query = "INSERT INTO users (username, full_name, email, phone, password, role, created_at) 
+                  VALUES (:username, :full_name, :email, :phone, :password, :role, :created_at)";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindParam(':username', $user_data['username']);
+        $stmt->bindParam(':full_name', $user_data['full_name']);
+        $stmt->bindParam(':email', $user_data['email']);
+        $stmt->bindParam(':phone', $user_data['phone']);
+        $stmt->bindParam(':password', $hashed_password);
+        $stmt->bindParam(':role', $user_data['role']);
+        $stmt->bindParam(':created_at', $user_data['created_at']);
+        
+        if ($stmt->execute()) {
+            return $this->conn->lastInsertId();
         }
+        
+        return false;
+    } catch (PDOException $e) {
+        $this->logError("Database error in create(): " . $e->getMessage());
+        return false;
+    }
+}
         /**
  * Check if username exists
  */
@@ -142,20 +156,7 @@ public function usernameExists($username) {
             }
         }
         
-        /**
-         * Update last login time
-         */
-        public function updateLastLogin($user_id) {
-            try {
-                $query = "UPDATE users SET last_login = NOW() WHERE id = :id";
-                $stmt = $this->conn->prepare($query);
-                $stmt->bindParam(':id', $user_id);
-                return $stmt->execute();
-            } catch (PDOException $e) {
-                $this->logError("Database error in updateLastLogin(): " . $e->getMessage());
-                return false;
-            }
-        }
+
         
         /**
          * Log errors to file
